@@ -334,8 +334,8 @@ body,
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/middle-section.js"></script>
 <script src="assets/js/init.js"></script>
 <script src="assets/js/plugins.js"></script>
 <script src="assets/js/jquery.main.js"></script>
@@ -343,54 +343,63 @@ body,
 <script src="assets/js/ScrollTrigger.min.js"></script>
 <script src="assets/js/Observer.min.js"></script>
 <script src="assets/js/gsap.effects.js"></script>
-<!-- for editing purpose -->
 <script src="assets/js/common_js/send_email.js"></script>
 <script src="assets/js/common_js/html_image_editor.js"></script>
 <script src="assets/js/common_js/windows_postmessage.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 <script>
-        var fileName = document.title || "index";
+                        $(function () {
 
-        $(document).ready(function () {
-            // loadHeaderFooter("header", "client-assets/teif298679/teif298679/header.html");
-            // loadHeaderFooter("footer", "client-assets/teif298679/teif298679/footer.html");
+                            /* Start code to load js and css files properly on local server or production server: NOte: this is the workwround, need to fix this */
+                           // loadHeaderFooter("header", "assets/teif298679/teif298679/header.html");
+                           // loadHeaderFooter("footer", "assets/teif298679/teif298679/footer.html");
+                            /*  End code */
 
-            loadHeaderFooter("header", "header.html");
-            loadHeaderFooter("footer", "footer.html");
-        });
+                            /*  Start code to load js and css files properly on Githubpages  */
+                            loadHeaderFooter("header", "header.html");
+                            loadHeaderFooter("footer", "footer.html");
+                            /* End code */
 
-        function loadHeaderFooter(id, file) {
-            $("#" + id).load(file, function (response, status, xhr) {
-                if (status === "error") {
-                    console.error("Error loading " + file + ":", xhr.status, xhr.statusText);
-                    return;
-                }
+                            function getCurrentFile() {
+                                let file = new URLSearchParams(location.search).get("srcReq")
+                                    || location.pathname.split("/").pop()
+                                    || "index.html";
 
-                $("#" + id).find("a").addClass("edit-site");
+                                if (!file.includes(".")) file += ".html";
 
-                if (id === "header") {
-                    if (fileName.toLowerCase() === "index" || fileName.toLowerCase() === "home") {
-                        $("#" + id).find(".main-header-section").css("display", "inline-block");
-                    } else {
-                        $("#" + id).find(".main-header-section").css("display", "none");
-                        $("#" + id).find(".header-breadcrumb-section").css("display", "inline-block");
-                        $("#" + id).find(".header-breadcrumb-section .Page_name")
-                            .text(fileName.charAt(0).toUpperCase() + fileName.slice(1));
-                    }
-                }
-            });
-        }
+                                return file.toLowerCase();
+                            }
 
-    </script>
-<script src="assets/js/middle-section.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="/assets/css/custom/editmode.js"></script>
-<script src="/assets/ai_model_bridge.js" type="module"></script>
-<script src="/assets/js/custom/main.js"></script>
-<script src="/assets/js/custom/editModeScript.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+                            function loadHeaderFooter(id, file) {
+                                $("#" + id).load(file, function (_, status) {
+                                    if (status === "error") return;
+                                    const targetid = $("#" + id);
+                                    targetid.find("a").addClass("edit-site");
+                                    if (id !== "header") return;
+                                    let current = getCurrentFile();
+
+                                    // Show / hide sections
+                                    targetid.find(".main-header-section").toggle(current === "index.html");
+                                    targetid.find(".header-breadcrumb-section").toggle(current !== "index.html");
+                                    // Match page name
+                                    let name = "";
+                                    targetid.find(".main-navigation a").each(function () {
+                                        let href = ($(this).attr("href") || "").split("/").pop().toLowerCase();
+                                        if (href === current) name = $(this).text().trim();
+                                    });
+
+                                    // Apply name (fallback safe)
+                                    targetid.find(".Page_name").text(
+                                        name || current.replace(".html", "").replace(/_/g, " ")
+                                    );
+                                });
+                            }
+
+                        });
+                    </script>
+<script src="assets/js/common_js/image_uploader.js"></script>
 
 
 </body>
