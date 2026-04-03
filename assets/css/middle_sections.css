@@ -30985,7 +30985,7 @@ color: #6c6c6c;
 .home-93-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.55);
+background: rgb(0 0 0 / 1%);
   z-index: 1;
 }
 
