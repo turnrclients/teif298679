@@ -1,0 +1,131 @@
+<header id="page-header" class="header-52">
+
+	<div class="header-holder">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-6 col-sm-3">
+					<!-- logo -->
+					<div class="logo">
+						<a href="home.html">
+							<img class="hidden-xs" src="assets/images/header-52-logo.png" alt="Logo">
+							<img class="hidden-sm hidden-md hidden-lg" src="assets/images/header-52-logo.png"
+								alt="Logo">
+						</a>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-9 static-block">
+					<!-- nav -->
+					<nav id="nav" class="navbar navbar-default justify-end">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+								data-target="#dynamic-header" aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<div class="collapse navbar-collapse" id="dynamic-header">
+							<ul class="nav navbar-nav navbar-right main-navigation text-uppercase font-lato">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="About_Us.html">About Us</a></li>
+								<li><a href="Services.html">Services</a></li>
+								<li><a href="Blogs.html">Blogs</a></li>
+								<li><a href="Contact.html">Contact</a></li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</header>
+<!-- Sticky scroll logic -->
+<script>
+	$(window).on('scroll', function () {
+		if ($(this).scrollTop() > 50) {
+			$('header.header-52').addClass('sticky-active');
+		} else {
+			$('header.header-52').removeClass('sticky-active');
+		}
+	});
+</script>
+
+
+<section class="home-93 section-wrapper main-header-section">
+
+    <div class="home-93-bg" style=" background: url('assets/images/home-67-bg.jpg') center/cover no-repeat;"></div>
+    <div class="home-93-overlay"></div>
+
+    <div class="home-93-inner">
+
+        <h1 class="home-93-title">
+            <span class="word">STRONGER</span>
+        </h1>
+
+        <h3 class="home-93-subtitle">TRANSFORM YOUR BODY</h3>
+
+    </div>
+</section>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// =========================
+// SCROLL TIMELINE (FIXED)
+// =========================
+let tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".home-93",
+    start: "top top",
+    end: "+=800",
+    scrub: true,
+    pin: true,
+    anticipatePin: 1,
+    invalidateOnRefresh: true   // 👈 IMPORTANT FIX
+  }
+});
+
+// ✅ ALWAYS DEFINE FROM → TO (IMPORTANT)
+tl.fromTo(".home-93-bg",
+  { scale: 1 },
+  { scale: 1.5, ease: "none" },
+  0
+);
+
+// TEXT (STRONGER)
+tl.fromTo(".char",
+  { y: 0, opacity: 1 },
+  {
+    y: -120,
+    opacity: 0,
+    stagger: 0.02,
+    ease: "none"
+  },
+  0.2
+);
+
+// SUBTITLE
+tl.fromTo(".home-93-subtitle",
+  { y: 0, opacity: 1 },
+  {
+    y: -60,
+    opacity: 0,
+    ease: "none"
+  },
+  0.2
+);
+</script>
+
+
+
+
+<section class="header-breadcrumb-section"
+	style="background: url('assets/images/header-52-breadcrumb-section-bg.jpg') center center / cover no-repeat;">
+	<div class="container text-center">
+		<h1 class="header-breadcrumb-section-title"><span class="Page_name">Page Name</span></h1>
+		<p class="header-breadcrumb-section-breadcrumb">
+			<a href="index.html">Home</a> &gt; <span class="Page_name">Page Name</span>
+		</p>
+	</div>
+</section>

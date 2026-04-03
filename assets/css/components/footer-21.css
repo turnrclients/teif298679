@@ -1,0 +1,222 @@
+.footer-21 {
+  position: relative;
+  color: #ffffff;
+  padding: 90px 20px 60px;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Overlay */
+.footer-21 .footer-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.96),
+    rgba(15, 0, 0, 0.96)
+  );
+  z-index: 1;
+}
+
+/* Content layer */
+.footer-21 .footer-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Reset row spacing (important for builders) */
+.footer-21 .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Column spacing */
+.footer-21 [class*="col-"] {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+/* ===================== */
+/* 🔥 HEADING */
+/* ===================== */
+.footer-21 .footer-21-heading {
+  font-size: 60px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  margin-bottom: 60px;
+}
+
+/* Highlight text */
+.footer-21 .footer-21-highlight {
+  display: block;
+  color: #ff2c2c;
+  margin-top: 10px;
+}
+
+/* ===================== */
+/* 💪 LOGO */
+/* ===================== */
+.footer-21 .footer-21-logo {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.footer-21 .footer-21-logo span {
+  color: #ff2c2c;
+}
+
+/* ===================== */
+/* 📍 TEXT */
+/* ===================== */
+.footer-21 .footer-21-address,
+.footer-21 .footer-21-email {
+  font-size: 14px;
+  color: #a0a0a0;
+  margin-bottom: 6px;
+}
+
+.footer-21 .footer-21-email i {
+  margin-right: 6px;
+  color: #ff2c2c;
+}
+
+/* ===================== */
+/* 📂 SECTION TITLES */
+/* ===================== */
+.footer-21 .widget-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #ff2c2c;
+  letter-spacing: 1px;
+}
+
+/* ===================== */
+/* 🔗 LINKS */
+/* ===================== */
+.footer-21 .footer-21-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-21 .footer-21-links li {
+  margin-bottom: 10px;
+}
+
+.footer-21 .footer-21-links a {
+  color: #cfcfcf;
+  text-decoration: none;
+  font-size: 14px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect (underline grow) */
+.footer-21 .footer-21-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: #ff2c2c;
+  transition: width 0.3s ease;
+}
+
+.footer-21 .footer-21-links a:hover {
+  color: #ffffff;
+}
+
+.footer-21 .footer-21-links a:hover::after {
+  width: 100%;
+}
+
+/* ===================== */
+/* 🧾 COPYRIGHT */
+/* ===================== */
+.footer-21 .footer-21-copy {
+  margin-top: 60px;
+  font-size: 12px;
+  color: #666;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ===================== */
+/* 📐 LAYOUT */
+/* ===================== */
+.footer-21 .footer-main {
+  margin-top: 20px;
+}
+
+/* ========================= */
+/* 📱 RESPONSIVE DESIGN */
+/* ========================= */
+
+/* Tablet */
+@media (max-width: 991px) {
+  .footer-21 {
+    padding: 70px 20px 50px;
+  }
+
+  .footer-21 .footer-21-heading {
+    font-size: 42px;
+    text-align: center;
+  }
+
+  .footer-21 .footer-main > div {
+    text-align: center;
+    margin-bottom: 35px;
+  }
+
+  .footer-21 .footer-21-logo {
+    font-size: 30px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .footer-21 {
+    padding: 60px 15px 40px;
+  }
+
+  .footer-21 .footer-21-heading {
+    font-size: 30px;
+    line-height: 1.3;
+  }
+
+  .footer-21 .footer-21-logo {
+    font-size: 26px;
+  }
+
+  .footer-21 .widget-title {
+    font-size: 14px;
+  }
+
+  .footer-21 .footer-21-links a {
+    font-size: 13px;
+  }
+
+  .footer-21 .footer-21-copy {
+    margin-top: 40px;
+    font-size: 11px;
+  }
+}
+
+/* Small devices */
+@media (max-width: 480px) {
+  .footer-21 .footer-21-heading {
+    font-size: 24px;
+  }
+
+  .footer-21 .footer-21-logo {
+    font-size: 22px;
+  }
+}
